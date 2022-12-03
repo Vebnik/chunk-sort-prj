@@ -1,0 +1,7 @@
+.vscode
+.git
+__pycache__
+data/*.csv
+dist/*.csv
+task/todo.py
+tests/other*.py
