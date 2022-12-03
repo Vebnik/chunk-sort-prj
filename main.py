@@ -12,15 +12,14 @@ def main():
   logging.basicConfig(level=logging.INFO)
 
   # get data in file
-  csv = CsvRead('./data/all_stocks.csv')
+  csv = CsvRead('./data/all_stocks_test.csv')
   csv_itt = csv.get_csv_itt()
 
   # parsing data
   start = time.time()
-  parser = DataParser(csv_itt, chunk_size=10_000)
+  parser = DataParser(csv_itt, chunk_size=1_000_000)
   res = parser.select_sorted(columns='high', limit=10)
 
   print(f"Computed time: {time.time() - start}")
   print(res)
   
-
