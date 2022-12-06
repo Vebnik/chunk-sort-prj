@@ -2,6 +2,7 @@
 .git
 __pycache__
 data/*.csv
-dist/*.csv
+dist
 task/todo.py
 tests/other*.py
+test.py
