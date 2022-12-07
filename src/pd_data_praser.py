@@ -5,6 +5,7 @@ import os
 import time
 import random as rnd
 
+
 class PdDataParser:
 
   chunk_size = 100_000
@@ -53,7 +54,6 @@ class PdDataParser:
         tmp_a = next(iter_a); tmp_b = next(iter_b); merge.writeheader()
 
         for i in it.count(start=0, step=1):
-
           if float(tmp_a.get('high') or 0) < float(tmp_b.get('high') or 0):
             merge.writerow(tmp_a)
             tmp_a = next(iter_a)
@@ -72,6 +72,7 @@ class PdDataParser:
 
       except Exception as ex:
         if isinstance(ex, IndexError):
+
           file_a = open(f'./dist/{name_scope[-1]}', 'r')
           file_merge_out = open(f'./dist/merge_{rnd.randint(0, 100)}.csv', 'w')
           merge_out = csv.DictWriter(file_merge_out, fieldnames=self.fieldnames)
@@ -87,7 +88,6 @@ class PdDataParser:
         file_a.close()
         file_b.close()
         file_merge.close()
-
 
         print(ex)
 
