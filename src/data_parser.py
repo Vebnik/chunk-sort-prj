@@ -59,7 +59,7 @@ class DataParser:
         merge_chunk = csv.DictWriter(open(f'./dist/{"next" if step else "prev"}/{cnt}_chunk.csv', 'w'), fieldnames=self.headers)
         merge_chunk.writeheader()
 
-        tmp_a = next(chunk_a, False)
+        tmp_a = next(chunk_a)
         tmp_b = next(chunk_b, False)
         cnt+=1
 
@@ -90,8 +90,6 @@ class DataParser:
         return self._sorted_compare(sort_config, sum_sorted, not step)
 
       
-
-
     except Exception as ex:
       logging.info(f'in _sorted_compare {ex}')
       exit()
